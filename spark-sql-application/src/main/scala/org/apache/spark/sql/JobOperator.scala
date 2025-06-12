@@ -81,6 +81,7 @@ case class JobOperator(
 
     val statementExecutionManager =
       instantiateStatementExecutionManager(commandContext, resultIndex, osClient)
+    statementExecutionManager.updateStatement(statement)
 
     val readWriteBytesSparkListener = new MetricsSparkListener()
     sparkSession.sparkContext.addSparkListener(readWriteBytesSparkListener)
